@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Simple Registration</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="../../resources/css/bootstrap.min.css" rel="stylesheet" media="screen"
+          th:href="@{/resources/css/bootstrap.min.css}"/>
+    <link href="../../resources/css/core.css" rel="stylesheet" media="screen" th:href="@{/resources/css/core.css}"/>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="../../resources/js/bootstrap.min.js" th:src="@{/resources/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div th:replace="fragments/header :: header">Header</div>
+<div class="container">
+    <th:block th:if="${message != null}">
+        <div th:replace="fragments/alert :: alert (type=${#strings.toLowerCase(message.type)}, message=#{${message.message}})">
+            &nbsp;</div>
+    </th:block>
+</div>
+<div class="container">
+    <div class="text-center">
+        <h1>Hello!</h1>
+
+        <p class="lead">
+            Welcome to a very very simple registration app! You probably want to register:
+        </p>
+
+        <p>
+            <a href="/signup" th:href="@{/signup}" class="btn btn-success btn-lg">Register</a>
+        </p>
+    </div>
+</div>
+</body>
+</html>
